@@ -1,0 +1,26 @@
+$text:#91a3f5;
+$turq:turquoise;
+
+
+@mixin block {
+    color:$text;
+    background-color: $turq;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr ;
+}
+
+.Left-side-grid{
+    grid-row-start: 1;
+    grid-row-end: span 3;
+
+}
+
+body{
+    background-color: wheat;
+    margin:0;
+}
+
+#break-label{
+    @include block;
+}

@@ -4,7 +4,6 @@ import { useEffect } from "react"
 
 function Timer({starter,start,state,setstate}){
     useEffect(()=>{
-        console.log(start)
         if (start === 1){
             return starter}
         setstate(previous=>({...previous, 
