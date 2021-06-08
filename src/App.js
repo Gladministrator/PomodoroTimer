@@ -58,7 +58,6 @@ function App() {
       audio.current = new Audio (DKC_FF)
       audio.current.Time = 0 
       audio.current.play()
-      console.log(audio.current)
       }
     else if (timestate.work === "Yes"){
       audio.current.pause()
