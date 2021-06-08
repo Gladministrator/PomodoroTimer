@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Workout_Timer/static/css/main.29fc63e0.chunk.css",
-    "main.js": "/Workout_Timer/static/js/main.891812a4.chunk.js",
-    "main.js.map": "/Workout_Timer/static/js/main.891812a4.chunk.js.map",
+    "main.css": "/Workout_Timer/static/css/main.fd180273.chunk.css",
+    "main.js": "/Workout_Timer/static/js/main.8b820541.chunk.js",
+    "main.js.map": "/Workout_Timer/static/js/main.8b820541.chunk.js.map",
     "runtime-main.js": "/Workout_Timer/static/js/runtime-main.3b6cb61c.js",
     "runtime-main.js.map": "/Workout_Timer/static/js/runtime-main.3b6cb61c.js.map",
     "static/js/2.45723f20.chunk.js": "/Workout_Timer/static/js/2.45723f20.chunk.js",
     "static/js/2.45723f20.chunk.js.map": "/Workout_Timer/static/js/2.45723f20.chunk.js.map",
     "index.html": "/Workout_Timer/index.html",
-    "static/css/main.29fc63e0.chunk.css.map": "/Workout_Timer/static/css/main.29fc63e0.chunk.css.map",
+    "static/css/main.fd180273.chunk.css.map": "/Workout_Timer/static/css/main.fd180273.chunk.css.map",
     "static/js/2.45723f20.chunk.js.LICENSE.txt": "/Workout_Timer/static/js/2.45723f20.chunk.js.LICENSE.txt",
     "static/media/DDD_Mario.fc8d41ab.mp3": "/Workout_Timer/static/media/DDD_Mario.fc8d41ab.mp3",
     "static/media/DKC_FF.49156c8a.mp3": "/Workout_Timer/static/media/DKC_FF.49156c8a.mp3"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.3b6cb61c.js",
     "static/js/2.45723f20.chunk.js",
-    "static/css/main.29fc63e0.chunk.css",
-    "static/js/main.891812a4.chunk.js"
+    "static/css/main.fd180273.chunk.css",
+    "static/js/main.8b820541.chunk.js"
   ]
 }
