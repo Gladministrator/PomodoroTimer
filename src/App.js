@@ -53,23 +53,23 @@ function App() {
 
 
   useEffect(()=>{
-    if (timestate.work === "not started" ){console.log("should stop")}
+    if (timestate.work === "not started" ){console.log("should stop");}
     else if (timestate.work === "Yes" && audio.current === null) {
-      audio.current = new Audio (DKC_FF)
-      audio.current.Time = 0 
-      audio.current.play()
+      audio.current = new Audio (DKC_FF);
+      audio.current.Time = 0 ;
+      audio.current.play();
       }
     else if (timestate.work === "Yes"){
-      audio.current.pause()
-      audio.current = new Audio (DKC_FF)
-      audio.current.Time = 0 
-      audio.current.play()
+      audio.current.pause();
+      audio.current = new Audio (DKC_FF);
+      audio.current.Time = 0 ;
+      audio.current.play();
     }
     else if (timestate.work === "No") {
-    audio.current.pause()
-    audio.current = new Audio(DDD_Mario)
-    audio.current.Time = 0 
-    audio.current.play()}
+    audio.current.pause();
+    audio.current = new Audio(DDD_Mario);
+    audio.current.Time = 0 ;
+    audio.current.play();}
 },[timestate.work])
 
   return (    
