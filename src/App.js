@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import WorkoutTime from "./Components/WorkoutTime";
 import BreakTime from "./Components/BreakTime";
 import Timer from "./Components/Timer";
@@ -46,10 +46,21 @@ function App() {
       firstRender.current = false;
       return;
     } else if (timestate.work === "Yes" && audio.current === null) {
+      audio.current = new Audio(DKC_FF);
+      audio.current.Time = 0;
+      audio.current.play();
       console.log("TEST");
     } else if (timestate.work === "Yes") {
+      audio.current.pause();
+      audio.current = new Audio(DKC_FF);
+      audio.current.Time = 0;
+      audio.current.play();
       console.log("TEST");
     } else if (timestate.work === "No") {
+      audio.current.pause();
+      audio.current = new Audio(DDD_Mario);
+      audio.current.Time = 0;
+      audio.current.play();
       console.log("TEST");
     }
   }, [timestate.work]);
