@@ -105,6 +105,8 @@ function App() {
       audio.current = new Audio(DDD_Mario);
       audio.current.Time = 0;
       audio.current.play();
+    } else {
+      console.log("Nothing");
     }
   }, [timestate.work]);
 
