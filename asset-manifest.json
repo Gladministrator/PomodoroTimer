@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Workout_Timer/static/css/main.201d9726.chunk.css",
-    "main.js": "/Workout_Timer/static/js/main.59c381ea.chunk.js",
-    "main.js.map": "/Workout_Timer/static/js/main.59c381ea.chunk.js.map",
+    "main.js": "/Workout_Timer/static/js/main.ec4dd205.chunk.js",
+    "main.js.map": "/Workout_Timer/static/js/main.ec4dd205.chunk.js.map",
     "runtime-main.js": "/Workout_Timer/static/js/runtime-main.3b6cb61c.js",
     "runtime-main.js.map": "/Workout_Timer/static/js/runtime-main.3b6cb61c.js.map",
     "static/js/2.45723f20.chunk.js": "/Workout_Timer/static/js/2.45723f20.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3b6cb61c.js",
     "static/js/2.45723f20.chunk.js",
     "static/css/main.201d9726.chunk.css",
-    "static/js/main.59c381ea.chunk.js"
+    "static/js/main.ec4dd205.chunk.js"
   ]
 }
