@@ -40,6 +40,20 @@ function App() {
   var audio = useRef(null);
   var firstRender = useRef(true);
 
+  useEffect(() => {
+    if (firstRender.current) {
+      console.log("FIRST");
+      firstRender.current = false;
+      return;
+    } else if (timestate.work === "Yes" && audio.current === null) {
+      console.log("TEST");
+    } else if (timestate.work === "Yes") {
+      console.log("TEST");
+    } else if (timestate.work === "No") {
+      console.log("TEST");
+    }
+  }, [timestate.work]);
+
   function incTime(param) {
     param((set) => ({
       ...set,
@@ -78,7 +92,7 @@ function App() {
       }));
     } else {
       clearInterval(timestate.intervalid);
-      audio.current.pause();
+      //* audio.current.pause();
       setstart(
         (breaktime.minutes + workouttime.minutes) * numroutines.counter * 60
       );
@@ -90,28 +104,6 @@ function App() {
       }));
     }
   }
-
-  useEffect(() => {
-    if (firstRender.current) {
-      console.log("FIRST");
-      firstRender.current = false;
-      return;
-    } else if (timestate.work === "Yes" && audio.current === null) {
-      audio.current = new Audio(DKC_FF);
-      audio.current.Time = 0;
-      audio.current.play();
-    } else if (timestate.work === "Yes") {
-      audio.current.pause();
-      audio.current = new Audio(DKC_FF);
-      audio.current.Time = 0;
-      audio.current.play();
-    } else if (timestate.work === "No") {
-      audio.current.pause();
-      audio.current = new Audio(DDD_Mario);
-      audio.current.Time = 0;
-      audio.current.play();
-    }
-  }, [timestate.work]);
 
   return (
     <div>
