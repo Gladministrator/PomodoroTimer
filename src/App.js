@@ -38,6 +38,7 @@ function App() {
   });
   const [start, setstart] = useState("");
   var audio = useRef(null);
+  var firstRender = useRef(true);
 
   function incTime(param) {
     param((set) => ({
@@ -91,7 +92,11 @@ function App() {
   }
 
   useEffect(() => {
-    if (timestate.work === "Yes" && audio.current === null) {
+    if (firstRender.current) {
+      console.log("FIRST");
+      firstRender.current = false;
+      return;
+    } else if (timestate.work === "Yes" && audio.current === null) {
       audio.current = new Audio(DKC_FF);
       audio.current.Time = 0;
       audio.current.play();
@@ -105,8 +110,6 @@ function App() {
       audio.current = new Audio(DDD_Mario);
       audio.current.Time = 0;
       audio.current.play();
-    } else {
-      console.log("Nothing");
     }
   }, [timestate.work]);
 
