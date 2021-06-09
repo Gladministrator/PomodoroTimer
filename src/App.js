@@ -51,15 +51,24 @@ function App() {
     }
   };
 
-  useEffect(()=> {
-    if (timestate.work === "not started" );
-    else if (timestate.work === "Yes" && audio.current === null) { 
-    audio.current = new Audio (DKC_FF);
-    audio.current.Time = 0;
-    audio.current.play(); 
-  }
-    else if (timestate.work === "Yes"){ audio.current.pause(); audio.current = new Audio (DKC_FF); audio.current.Time = 0 ; audio.current.play();}
-    else if (timestate.work === "No") { audio.current.pause(); audio.current = new Audio(DDD_Mario); audio.current.Time = 0 ; audio.current.play();}
+  useEffect(()=>{
+    if (timestate.work === "Yes" && audio.current === null) {
+      audio.current = new Audio (DKC_FF);
+      audio.current.Time = 0;
+      audio.current.play();
+    }
+    else if (timestate.work === "Yes"){
+      audio.current.pause();
+      audio.current = new Audio (DKC_FF); 
+      audio.current.Time = 0; 
+      audio.current.play();
+    }
+    else if (timestate.work === "No") { 
+      audio.current.pause();
+      audio.current = new Audio(DDD_Mario); 
+      audio.current.Time = 0; 
+      audio.current.play();
+    }
   },[timestate.work]);
 
 
@@ -69,7 +78,8 @@ function App() {
     <WorkoutTime dec={decTime} inc={incTime} state={workouttime} setstate={setworkouttime}/>
     <BreakTime dec={decTime} inc={incTime} state={breaktime} setstate={setbreaktime}/>
     <Timer starter={startSession} start={start} state={timestate} setstate={settimestate}/>
-  </div>)
+  </div>
+  )
 
 }
 
