@@ -27,7 +27,7 @@ function App() {
     param(set => ({...set,"minutes": set.minutes>1 ? set.minutes - 1:1, "counter": set.counter>1 ? set.counter - 1:1}))
   }
 
-  function startSession(){
+  function startSession() {
     if (!timestate.starter){
     setstart(((breaktime.minutes + workouttime.minutes) * numroutines.counter)  * 60,)
     settimestate (previous=>({...previous, 
@@ -49,28 +49,10 @@ function App() {
           setstart(((breaktime.minutes + workouttime.minutes) * numroutines.counter)  * 60)
           settimestate(previous=>({...previous,"starter":!timestate.starter,"work":"not started","wording":"Press Start to get started!"}))
     }
-  }
+  };
 
 
-  useEffect(()=>{
-    if (timestate.work === "not started" ){console.log("should stop");}
-    else if (timestate.work === "Yes" && audio.current === null) {
-      audio.current = new Audio (DKC_FF);
-      audio.current.Time = 0 ;
-      audio.current.play();
-      }
-    else if (timestate.work === "Yes"){
-      audio.current.pause();
-      audio.current = new Audio (DKC_FF);
-      audio.current.Time = 0 ;
-      audio.current.play();
-    }
-    else if (timestate.work === "No") {
-    audio.current.pause();
-    audio.current = new Audio(DDD_Mario);
-    audio.current.Time = 0 ;
-    audio.current.play();}
-},[timestate.work])
+
 
   return (    
   <div> 
