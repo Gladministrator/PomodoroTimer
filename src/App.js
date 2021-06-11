@@ -16,27 +16,29 @@ function App() {
     counter: 1,
   });
   const [workouttime, setworkouttime] = useState({
-    minutes: 1,
+    minutes: 2,
     seconds: 0,
-    counter: 1,
+    counter: 2,
   });
   const [breaktime, setbreaktime] = useState({
-    minutes: 1,
+    minutes: 3,
     seconds: 0,
-    counter: 1,
+    counter: 3,
   });
   const [timestate, settimestate] = useState({
     starter: false,
     intervalid: "",
     worktime: "",
     breaks: "",
-    counter: 0,
+    counter: "",
     work: "not started",
     minutes: "",
     seconds: "",
     wording: "Press Start to get started!",
   });
-  const [start, setstart] = useState("");
+  var activity = useRef({ active: true, paws: 0 });
+  const [actstate, setactstate] = useState({ wording: "START" });
+  const [start, setstart] = useState(60 * 30);
   var audio = useRef(null);
   var firstRender = useRef(true);
 
@@ -44,32 +46,28 @@ function App() {
     if (firstRender.current) {
       console.log("FIRST");
       firstRender.current = false;
-      return;
     } else if (timestate.work === "Yes" && audio.current === null) {
       audio.current = new Audio(DKC_FF);
       audio.current.Time = 0;
       audio.current.play();
-      console.log("TEST");
     } else if (timestate.work === "Yes") {
       audio.current.pause();
       audio.current = new Audio(DKC_FF);
       audio.current.Time = 0;
       audio.current.play();
-      console.log("TEST");
     } else if (timestate.work === "No") {
       audio.current.pause();
       audio.current = new Audio(DDD_Mario);
       audio.current.Time = 0;
       audio.current.play();
-      console.log("TEST");
     }
   }, [timestate.work]);
 
   function incTime(param) {
     param((set) => ({
       ...set,
-      minutes: set.minutes + 1,
-      counter: set.counter + 1,
+      minutes: set.minutes < 60 ? set.minutes + 1 : 60,
+      counter: set.counter < 60 ? set.counter + 1 : 60,
     }));
   }
 
@@ -81,16 +79,50 @@ function App() {
     }));
   }
 
+  function resetSession() {
+    if (audio.current !== null) {
+      audio.current.pause();
+      audio.current.Time = 0;
+    }
+    clearInterval(timestate.intervalid);
+    setbreaktime({
+      minutes: 5,
+      seconds: 0,
+      counter: 5,
+    });
+    setnumroutines({
+      minutes: 1,
+      seconds: 0,
+      counter: 1,
+    });
+    setworkouttime({
+      minutes: 25,
+      seconds: 0,
+      counter: 25,
+    });
+    settimestate((previous) => ({
+      ...previous,
+      starter: false,
+      work: "not started",
+      wording: "Press Start to get started!",
+      minutes: 30,
+    }));
+  }
+
   function startSession() {
     if (!timestate.starter) {
+      setactstate({ wording: "PAUSE" });
       setstart(
         (breaktime.minutes + workouttime.minutes) * numroutines.counter * 60
       );
       settimestate((previous) => ({
         ...previous,
         intervalid: setInterval(() => {
-          setstart((prevvalue) => prevvalue - 1);
-        }, 100),
+          if (activity.current.active) {
+            console.log(activity.active);
+            setstart((prevvalue) => prevvalue - 1);
+          }
+        }, 1000),
         starter: !timestate.starter,
         worktime: workouttime.counter,
         breaks: breaktime.counter,
@@ -102,17 +134,17 @@ function App() {
         wording: "Workout Time!",
       }));
     } else {
-      clearInterval(timestate.intervalid);
-      //* audio.current.pause();
-      setstart(
-        (breaktime.minutes + workouttime.minutes) * numroutines.counter * 60
-      );
-      settimestate((previous) => ({
-        ...previous,
-        starter: !timestate.starter,
-        work: "not started",
-        wording: "Press Start to get started!",
-      }));
+      if (activity.current.paws === 0) {
+        activity.current.active = false;
+        activity.current.paws = 1;
+        audio.current.pause();
+        setactstate({ wording: "RESUME" });
+      } else {
+        activity.current.active = true;
+        activity.current.paws = 0;
+        audio.current.play();
+        setactstate({ wording: "PAUSE" });
+      }
     }
   }
 
@@ -137,9 +169,15 @@ function App() {
         setstate={setbreaktime}
       />
       <Timer
+        status={actstate}
+        breaks={breaktime}
+        work={workouttime}
+        routines={numroutines}
         starter={startSession}
         start={start}
+        setstarter={setstart}
         state={timestate}
+        reset={resetSession}
         setstate={settimestate}
       />
     </div>

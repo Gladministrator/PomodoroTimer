@@ -5,14 +5,16 @@ $turq: turquoise;
   color: $text;
   background-color: $turq;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   text-align: center;
+  border: solid 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.Left-side-grid {
-  grid-row-start: 1;
-  grid-row-end: span 3;
+.css-grid {
+  @include block;
 }
 
 body {
@@ -20,6 +22,46 @@ body {
   margin: 0;
 }
 
-#break-label {
-  @include block;
+#timer-label,
+#break-label,
+#session-label {
+  grid-row-start: 1;
+  grid-row-end: span 2;
+}
+
+#break-decrement,
+#break-increment,
+#session-increment,
+#session-decrement,
+#routine-decrement,
+#routine-increment {
+  border: solid black 2px;
+}
+
+#routine-length,
+#break-length,
+#session-length {
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid purple 2px;
+}
+
+#time-left {
+  color: olivedrab;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#start_stop {
+  background-color: aquamarine;
+  border: double green 3px;
+}
+#reset {
+  background-color: rgb(184, 69, 69);
+  font-weight: bold;
+  border-radius: 10%;
+  border: double orange 3px;
 }

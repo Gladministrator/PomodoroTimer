@@ -1,8 +1,22 @@
 import React from "react";
 import { useEffect } from "react";
 
-function Timer({ starter, start, state, setstate }) {
+function Timer({
+  starter,
+  start,
+  state,
+  setstate,
+  reset,
+  breaks,
+  work,
+  routines,
+  setstarter,
+  status,
+}) {
   useEffect(() => {
+    if (state.starter === false) {
+      setstarter((breaks.minutes + work.minutes) * routines.counter * 60);
+    }
     if (start === 1) {
       return starter;
     }
@@ -27,14 +41,19 @@ function Timer({ starter, start, state, setstate }) {
         wording: "Workout Time!",
       }));
     }
-  }, [start]);
+  }, [start, breaks, work, routines]);
 
   return (
     <div>
       <h1>Total Time Remaining</h1>
-      <button onClick={starter}>{!state.starter ? "Start" : "Stop"}</button>
-      <p>
-        {state.minutes}:{" "}
+      <button id="start_stop" onClick={starter}>
+        {status.wording}
+      </button>
+      <button id="reset" onClick={reset}>
+        RESET
+      </button>
+      <p id="time-left">
+        {state.minutes}:
         {state.seconds < 10 ? "0" + state.seconds : state.seconds}
       </p>
       <p>{state.wording}</p>
