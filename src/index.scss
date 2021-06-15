@@ -17,16 +17,15 @@ $turq: turquoise;
   @include block;
 }
 
+#title {
+  text-align: center;
+  color: cadetblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   background-color: wheat;
   margin: 0;
-}
-
-#timer-label,
-#break-label,
-#session-label {
-  grid-row-start: 1;
-  grid-row-end: span 2;
 }
 
 #break-decrement,
@@ -58,10 +57,30 @@ body {
 #start_stop {
   background-color: aquamarine;
   border: double green 3px;
+  padding: 5px;
 }
 #reset {
-  background-color: rgb(184, 69, 69);
+  background-color: rgb(184, 26, 26);
   font-weight: bold;
-  border-radius: 10%;
   border: double orange 3px;
+  padding: 5px;
+}
+
+#timer-label {
+  color: blueviolet;
+  font-weight: bolder;
+}
+
+#TimerArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .buttons {
+    width: 25%;
+    height: 7vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
 }

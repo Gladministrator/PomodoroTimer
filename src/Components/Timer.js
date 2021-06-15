@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import beep from "./Time is up.mp3";
 
 function Timer({
   starter,
@@ -12,13 +13,33 @@ function Timer({
   routines,
   setstarter,
   status,
+  audi,
 }) {
   useEffect(() => {
     if (state.starter === false) {
-      setstarter((breaks.minutes + work.minutes) * routines.counter * 60);
+      setstarter(work.minutes * routines.counter * 60);
     }
-    if (start === 1) {
-      return starter;
+    if (start + 1 === 0 && state.wording === "Session has begun") {
+      setstarter(breaks.minutes * 60);
+      setstate((prev) => ({
+        ...prev,
+        work: "No",
+        counter: 1,
+        wording: "Time for a break!",
+        music: "Play",
+      }));
+      return audi;
+    }
+    if (start + 1 === 0 && state.wording === "Time for a break!") {
+      setstarter(work.minutes * 60);
+      setstate((prev) => ({
+        ...prev,
+        work: "Yes",
+        counter: 1,
+        wording: "Session has begun",
+        music: "PlayAgain",
+      }));
+      return audi;
     }
     setstate((previous) => ({
       ...previous,
@@ -26,37 +47,25 @@ function Timer({
       seconds: start % 60,
       counter: previous.counter + 1,
     }));
-    if (state.work === "Yes" && state.counter === state.worktime * 60) {
-      return setstate((prev) => ({
-        ...prev,
-        work: "No",
-        counter: 1,
-        wording: "Time for a break!",
-      }));
-    } else if (state.work === "No" && state.counter === state.breaks * 60) {
-      return setstate((prev) => ({
-        ...prev,
-        work: "Yes",
-        counter: 1,
-        wording: "Workout Time!",
-      }));
-    }
   }, [start, breaks, work, routines]);
 
   return (
-    <div>
+    <div id="TimerArea">
       <h1>Total Time Remaining</h1>
-      <button id="start_stop" onClick={starter}>
-        {status.wording}
-      </button>
-      <button id="reset" onClick={reset}>
-        RESET
-      </button>
       <p id="time-left">
-        {state.minutes}:
+        {state.minutes < 10 ? `0${state.minutes}` : state.minutes}:
         {state.seconds < 10 ? "0" + state.seconds : state.seconds}
       </p>
-      <p>{state.wording}</p>
+      <audio src={beep} id="beep"></audio>
+      <p id="timer-label">{state.wording}</p>
+      <div className="buttons">
+        <button id="start_stop" onClick={starter}>
+          {status.wording}
+        </button>
+        <button id="reset" onClick={reset}>
+          RESET
+        </button>
+      </div>
     </div>
   );
 }
