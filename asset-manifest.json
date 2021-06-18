@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Workout_Timer/static/css/main.662de4cb.chunk.css",
-    "main.js": "/Workout_Timer/static/js/main.e0fed914.chunk.js",
-    "main.js.map": "/Workout_Timer/static/js/main.e0fed914.chunk.js.map",
-    "runtime-main.js": "/Workout_Timer/static/js/runtime-main.3b6cb61c.js",
-    "runtime-main.js.map": "/Workout_Timer/static/js/runtime-main.3b6cb61c.js.map",
-    "static/js/2.864bee34.chunk.js": "/Workout_Timer/static/js/2.864bee34.chunk.js",
-    "static/js/2.864bee34.chunk.js.map": "/Workout_Timer/static/js/2.864bee34.chunk.js.map",
-    "index.html": "/Workout_Timer/index.html",
-    "static/css/main.662de4cb.chunk.css.map": "/Workout_Timer/static/css/main.662de4cb.chunk.css.map",
-    "static/js/2.864bee34.chunk.js.LICENSE.txt": "/Workout_Timer/static/js/2.864bee34.chunk.js.LICENSE.txt",
-    "static/media/Time is up.16fefd91.mp3": "/Workout_Timer/static/media/Time is up.16fefd91.mp3"
+    "main.css": "/PomodoroTimer/static/css/main.662de4cb.chunk.css",
+    "main.js": "/PomodoroTimer/static/js/main.e0fed914.chunk.js",
+    "main.js.map": "/PomodoroTimer/static/js/main.e0fed914.chunk.js.map",
+    "runtime-main.js": "/PomodoroTimer/static/js/runtime-main.f0c364d3.js",
+    "runtime-main.js.map": "/PomodoroTimer/static/js/runtime-main.f0c364d3.js.map",
+    "static/js/2.864bee34.chunk.js": "/PomodoroTimer/static/js/2.864bee34.chunk.js",
+    "static/js/2.864bee34.chunk.js.map": "/PomodoroTimer/static/js/2.864bee34.chunk.js.map",
+    "index.html": "/PomodoroTimer/index.html",
+    "static/css/main.662de4cb.chunk.css.map": "/PomodoroTimer/static/css/main.662de4cb.chunk.css.map",
+    "static/js/2.864bee34.chunk.js.LICENSE.txt": "/PomodoroTimer/static/js/2.864bee34.chunk.js.LICENSE.txt",
+    "static/media/Time is up.16fefd91.mp3": "/PomodoroTimer/static/media/Time is up.16fefd91.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.3b6cb61c.js",
+    "static/js/runtime-main.f0c364d3.js",
     "static/js/2.864bee34.chunk.js",
     "static/css/main.662de4cb.chunk.css",
     "static/js/main.e0fed914.chunk.js"
