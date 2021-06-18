@@ -123,7 +123,9 @@ function App() {
       if (activity.current.paws === 0) {
         activity.current.active = false;
         activity.current.paws = 1;
-        audio.current.pause();
+        if (!audio.current === null) {
+          audio.current.pause();
+        }
         console.log(timestate.intervalid);
 
         setactstate({ wording: "RESUME" });
@@ -137,9 +139,12 @@ function App() {
             }
           }, 1000),
         }));
+        if (!audio.current === null) {
+          audio.current.play();
+        }
         activity.current.active = true;
         activity.current.paws = 0;
-        audio.current.play();
+        console.log("resumed");
         setactstate({ wording: "PAUSE" });
       }
     }
